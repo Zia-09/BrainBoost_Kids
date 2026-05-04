@@ -1,0 +1,148 @@
+import '../models/question.dart';
+
+List<Question> englishQuestions = [
+  // VOCABULARY - EASY
+  Question(text: "What is the opposite of 'Big'?", options: ["Large", "Small", "Huge", "Wide"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "Which word is a color?", options: ["Apple", "Blue", "Chair", "Run"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "What is the opposite of 'Happy'?", options: ["Glad", "Sad", "Joyful", "Fun"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "Which word is an animal?", options: ["Table", "Car", "Lion", "Ball"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "What is the opposite of 'Hot'?", options: ["Warm", "Fire", "Cold", "Sun"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "Which word means 'to move fast'?", options: ["Walk", "Sit", "Run", "Sleep"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "What is a baby dog called?", options: ["Kitten", "Puppy", "Cub", "Calf"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "Which fruit is yellow?", options: ["Apple", "Banana", "Grape", "Berry"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "What is the opposite of 'Up'?", options: ["Down", "Left", "Right", "High"], correctOptionIndex: 0, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  Question(text: "Which word is a number?", options: ["Five", "Green", "Cat", "Jump"], correctOptionIndex: 0, topic: "Vocabulary", difficulty: "Easy", subject: "English"),
+  
+  // VOCABULARY - MEDIUM
+  Question(text: "Which word is a synonym for 'Quick'?", options: ["Slow", "Fast", "Quiet", "Heavy"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "What is a 'house for a bird' called?", options: ["Stable", "Nest", "Kennel", "Burrow"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "Which word means 'very smart'?", options: ["Dull", "Intelligent", "Silly", "Simple"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "Find the synonym of 'Angry':", options: ["Happy", "Mad", "Calm", "Sleepy"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "A person who treats sick animals is a:", options: ["Doctor", "Dentist", "Vet", "Nurse"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "Which word means 'to start'?", options: ["Finish", "Begin", "End", "Stop"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "What do you call the person who writes books?", options: ["Painter", "Author", "Chef", "Pilot"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "Which word describes a very loud noise?", options: ["Whisper", "Quiet", "Deafening", "Soft"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "What is a group of lions called?", options: ["Pack", "Herd", "Pride", "Flock"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+  Question(text: "Which word means 'not often'?", options: ["Always", "Rarely", "Usually", "Daily"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Medium", subject: "English"),
+
+  // VOCABULARY - HARD
+  Question(text: "The word 'Diligent' means:", options: ["Lazy", "Hardworking", "Sleepy", "Funny"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "What is a synonym for 'Fragile'?", options: ["Strong", "Breakable", "Heavy", "Large"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "Which word means 'to predict the future'?", options: ["Recall", "Foreshadow", "Remember", "Forget"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "What is the meaning of 'Ancient'?", options: ["Modern", "New", "Very Old", "Shiny"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "Which word is an antonym for 'Generous'?", options: ["Kind", "Mean", "Stingy", "Helpful"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "What does 'Transparent' mean?", options: ["Can't see through", "See through", "Dark", "Solid"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "A 'Calamity' is most similar to:", options: ["Celebration", "Disaster", "Success", "Peace"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "Which word means 'to give up a throne'?", options: ["Abstain", "Abdicate", "Acknowledge", "Abduct"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "What is a 'Labyrinth'?", options: ["Library", "Maze", "Forest", "Cave"], correctOptionIndex: 1, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+  Question(text: "The word 'Vast' is closest in meaning to:", options: ["Tiny", "Narrow", "Immense", "Short"], correctOptionIndex: 2, topic: "Vocabulary", difficulty: "Hard", subject: "English"),
+
+  // GRAMMAR - EASY
+  Question(text: "Which of these is a noun?", options: ["Run", "Jump", "Apple", "Fast"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Choose the correct pronoun: '___ is my friend.'", options: ["He", "Him", "His", "Me"], correctOptionIndex: 0, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Which word should start with a capital letter?", options: ["monday", "apple", "book", "school"], correctOptionIndex: 0, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Identify the verb: 'The dog barks.'", options: ["The", "Dog", "Barks", "Loud"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Which is a plural word?", options: ["Cat", "Dogs", "Bird", "Tree"], correctOptionIndex: 1, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Choose the correct article: 'I saw ___ elephant.'", options: ["a", "an", "the", "some"], correctOptionIndex: 1, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "What comes at the end of a question?", options: ["Period", "Comma", "Question Mark", "Exclamation"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Which of these is a vowel?", options: ["B", "C", "E", "D"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Which word describes a noun?", options: ["Verb", "Adjective", "Adverb", "Pronoun"], correctOptionIndex: 1, topic: "Grammar", difficulty: "Easy", subject: "English"),
+  Question(text: "Choose the correct form: 'We ___ happy.'", options: ["is", "am", "are", "be"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Easy", subject: "English"),
+
+  // GRAMMAR - MEDIUM
+  Question(text: "Identify the adjective: 'The big blue bus.'", options: ["The", "Bus", "Blue", "Big and Blue"], correctOptionIndex: 3, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "Which sentence is correct?", options: ["She go to school.", "She goes to school.", "She going to school.", "She gone to school."], correctOptionIndex: 1, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "What is the past tense of 'Go'?", options: ["Goes", "Going", "Went", "Gone"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "Find the adverb: 'He ran quickly.'", options: ["He", "Ran", "Quickly", "Fast"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "Which is a compound word?", options: ["Happy", "Butterfly", "Running", "Simple"], correctOptionIndex: 1, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "Choose the correct preposition: 'The cat is ___ the table.'", options: ["under", "between", "of", "to"], correctOptionIndex: 0, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "Which is a conjunction?", options: ["And", "Run", "Slowly", "Red"], correctOptionIndex: 0, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "What is the plural of 'Child'?", options: ["Childs", "Children", "Childrens", "Childes"], correctOptionIndex: 1, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "Identify the subject: 'The little bird sang a song.'", options: ["The little bird", "Sang", "A song", "Sang a song"], correctOptionIndex: 0, topic: "Grammar", difficulty: "Medium", subject: "English"),
+  Question(text: "Which is a proper noun?", options: ["City", "Country", "London", "Street"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Medium", subject: "English"),
+
+  // GRAMMAR - HARD
+  Question(text: "Identify the indirect object: 'She gave me a gift.'", options: ["She", "Gave", "Me", "Gift"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "Which sentence is in the present perfect tense?", options: ["I ate lunch.", "I am eating lunch.", "I have eaten lunch.", "I will eat lunch."], correctOptionIndex: 2, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "Choose the correct possessive: 'The ___ toys are here.' (belonging to the boys)", options: ["boy's", "boys'", "boys", "boyes"], correctOptionIndex: 1, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "What is the superlative form of 'Good'?", options: ["Better", "Gooder", "Best", "Bestest"], correctOptionIndex: 2, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "Which part of speech is 'Alas'?", options: ["Interjection", "Preposition", "Conjunction", "Adverb"], correctOptionIndex: 0, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "Identify the passive voice sentence:", options: ["I wrote a letter.", "The letter was written by me.", "I am writing a letter.", "A letter I wrote."], correctOptionIndex: 1, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "Which is a reflexive pronoun?", options: ["I", "Me", "My", "Myself"], correctOptionIndex: 3, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "Identify the prefix in 'Unhappy':", options: ["Un", "Happy", "Py", "Hap"], correctOptionIndex: 0, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "What is a 'Gerund'?", options: ["A type of noun", "A verb ending in -ing acting as a noun", "A past tense verb", "An adjective"], correctOptionIndex: 1, topic: "Grammar", difficulty: "Hard", subject: "English"),
+  Question(text: "Which sentence has a dangling participle?", options: ["Running to the bus, his hat fell off.", "I saw the bus running.", "The bus was running fast.", "He ran to the bus."], correctOptionIndex: 0, topic: "Grammar", difficulty: "Hard", subject: "English"),
+
+  // SPELLING - EASY
+  Question(text: "Choose the correct spelling:", options: ["Apple", "Aple", "Appel", "Appl"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Which word is spelled correctly?", options: ["Banana", "Bannana", "Bananna", "Bananas"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Correct spelling for the number 8:", options: ["Eight", "Eit", "Eigt", "Aight"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Which is correct?", options: ["School", "Skool", "Schoal", "Shool"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Choose the correct spelling:", options: ["Orange", "Ornge", "Orenge", "Oranje"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Which is correct?", options: ["Friend", "Freind", "Frind", "Frend"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Correct spelling for 'Happy':", options: ["Hapy", "Happie", "Happy", "Hapi"], correctOptionIndex: 2, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Which is correct?", options: ["Animal", "Animel", "Anamal", "Animul"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Choose the correct spelling:", options: ["Because", "Becoz", "Bcause", "Beccause"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+  Question(text: "Which is correct?", options: ["Morning", "Morneing", "Morninge", "Morining"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Easy", subject: "English"),
+
+  // SPELLING - MEDIUM
+  Question(text: "Find the correct spelling:", options: ["Elephant", "Elefant", "Elefent", "Elephent"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Correct spelling of the ninth month:", options: ["September", "Septembar", "Saptember", "Septembor"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Which is correct?", options: ["Beautiful", "Beatiful", "Beautyful", "Beautifull"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Choose the correct spelling:", options: ["Calendar", "Calender", "Calander", "Calendur"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Which is correct?", options: ["Library", "Libery", "Librery", "Libray"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Correct spelling for 'Tomorrow':", options: ["Tommorow", "Tomorrow", "Tomoro", "Tommorrow"], correctOptionIndex: 1, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Which is correct?", options: ["Believe", "Beleive", "Belive", "Beleeve"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Find the correct spelling:", options: ["Mountain", "Mounten", "Mountin", "Mauntain"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Which is correct?", options: ["Neighbor", "Nabor", "Neighber", "Naybor"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+  Question(text: "Choose the correct spelling:", options: ["Separate", "Seperate", "Seperit", "Seprate"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Medium", subject: "English"),
+
+  // SPELLING - HARD
+  Question(text: "Which is spelled correctly?", options: ["Necessary", "Necesary", "Neccessary", "Nessesary"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Find the correct spelling:", options: ["Accommodate", "Acomodate", "Accomodate", "Acommodate"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Which is correct?", options: ["Queue", "Que", "Queu", "Qewe"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Choose the correct spelling:", options: ["Rhythm", "Rythm", "Rhythum", "Rhithm"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Which is correct?", options: ["Conscience", "Consience", "Conshience", "Conshence"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Correct spelling for 'Maintenance':", options: ["Maintainance", "Maintenance", "Maintenence", "Maintenants"], correctOptionIndex: 1, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Which is correct?", options: ["Occurred", "Ocured", "Occured", "Ocurred"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Find the correct spelling:", options: ["Definitely", "Definitly", "Definately", "Definetly"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Which is correct?", options: ["Guarantee", "Garantee", "Guarentee", "Gaurantee"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+  Question(text: "Choose the correct spelling:", options: ["Hierarchy", "Hierachy", "Heirarchy", "Highrarchy"], correctOptionIndex: 0, topic: "Spelling", difficulty: "Hard", subject: "English"),
+
+  // COMPREHENSION - EASY
+  Question(text: "If Sam has a red hat and a blue bag, what color is his hat?", options: ["Blue", "Red", "Green", "Yellow"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "The sun rises in the East. Where does it rise?", options: ["West", "North", "South", "East"], correctOptionIndex: 3, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "Ben likes to swim in the pool. Where does Ben swim?", options: ["Lake", "Ocean", "Pool", "River"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "A cat says 'Meow' and a dog says 'Woof'. What does a dog say?", options: ["Meow", "Woof", "Moo", "Oink"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "It is raining outside, so Lily took her umbrella. Why did she take it?", options: ["Sun", "Rain", "Snow", "Wind"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "Ice is cold and fire is hot. How does ice feel?", options: ["Warm", "Soft", "Cold", "Hard"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "Birds have wings to fly. Why do birds have wings?", options: ["To walk", "To swim", "To fly", "To eat"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "The grass is green and the sky is blue. What color is the grass?", options: ["Blue", "Green", "Red", "Yellow"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "A baker makes bread. What does a baker make?", options: ["Cars", "Bread", "Shoes", "Toys"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+  Question(text: "I have two hands and ten fingers. How many fingers do I have?", options: ["Two", "Five", "Ten", "Eight"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Easy", subject: "English"),
+
+  // COMPREHENSION - MEDIUM
+  Question(text: "Mary loves to paint. She uses brushes and colors. What does Mary do?", options: ["Cook", "Dance", "Paint", "Sing"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "Rain falls from clouds. Where does rain come from?", options: ["Trees", "Ocean", "Clouds", "Mountains"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "Bees make honey in a hive. Where do bees make honey?", options: ["Forest", "Hive", "Garden", "Tree"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "Frogs live in ponds and eat insects. What do frogs eat?", options: ["Plants", "Fish", "Insects", "Grass"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "A clock tells us the time. What is the clock for?", options: ["Music", "Time", "Light", "Heat"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "Stars shine at night in the sky. When do stars shine?", options: ["Morning", "Afternoon", "Night", "Daytime"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "An apple grows on a tree. Where does it grow?", options: ["Ground", "Bush", "Tree", "Water"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "The library is a quiet place with books. What is in the library?", options: ["Toys", "Books", "Cars", "Food"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "Farmers grow vegetables like carrots. What do farmers grow?", options: ["Clothes", "Furniture", "Vegetables", "Electronics"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+  Question(text: "A dentist looks after your teeth. Who looks after your teeth?", options: ["Chef", "Dentist", "Pilot", "Artist"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Medium", subject: "English"),
+
+  // COMPREHENSION - HARD
+  Question(text: "Plants need water and sunlight to grow. What two things do they need?", options: ["Food and Air", "Water and Sun", "Rocks and Dirt", "Ice and Wind"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "The Earth goes around the Sun once a year. How long does it take?", options: ["A day", "A month", "A year", "A week"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "Camels can live in the desert without much water. Where do they live?", options: ["Forest", "Jungle", "Desert", "Ocean"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "The Great Wall of China is one of the Seven Wonders. What is it called?", options: ["Great Wall", "Big Wall", "Long Wall", "Stone Wall"], correctOptionIndex: 0, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "Oxygen is the gas that humans need to breathe. What gas do we need?", options: ["Carbon", "Nitrogen", "Oxygen", "Helium"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "The heart pumps blood through the entire body. What does the heart do?", options: ["Thinks", "Breathes", "Pumps blood", "Digests food"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "Mammals are animals that give birth to live young. What are mammals?", options: ["Animals that lay eggs", "Animals that give birth to live young", "Animals with scales", "Animals that fly"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "Hibernation is when animals sleep through the winter. What is hibernation?", options: ["Summer sleep", "Winter sleep", "Daily nap", "Night sleep"], correctOptionIndex: 1, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "The brain controls everything our body does. What controls our body?", options: ["Heart", "Lungs", "Brain", "Stomach"], correctOptionIndex: 2, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+  Question(text: "Refraction is when light bends as it passes through water. What is refraction?", options: ["Light bending", "Light reflecting", "Light stopping", "Light speeding up"], correctOptionIndex: 0, topic: "Comprehension", difficulty: "Hard", subject: "English"),
+
+];
