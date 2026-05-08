@@ -476,23 +476,35 @@ class _WordWizardGameScreenState extends State<WordWizardGameScreen>
                         ? null
                         : () {
                             try {
+                              debugPrint('MCQ option tapped: $option');
                               bool correct = provider.checkMcqAnswer(option);
                               if (correct) {
+                                debugPrint('✓ CORRECT MCQ ANSWER');
                                 SoundService().playCorrectSound();
                               } else {
+                                debugPrint('✗ WRONG MCQ ANSWER');
                                 SoundService().playWrongSound();
                                 setState(() => _wrongMcqIndex = index);
                                 Future.delayed(
                                   const Duration(milliseconds: 1000),
                                   () {
-                                    if (mounted)
+                                    if (mounted) {
                                       setState(() => _wrongMcqIndex = null);
+                                    }
                                   },
                                 );
                               }
                             } catch (e) {
-                              debugPrint('Error checking MCQ answer: $e');
+                              debugPrint(
+                                'CRITICAL ERROR checking MCQ answer: $e',
+                              );
                               SoundService().playWrongSound();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Error: $e'),
+                                  backgroundColor: Colors.red,
+                                ),
+                              );
                             }
                           },
                     style: ElevatedButton.styleFrom(
@@ -618,10 +630,31 @@ class _WordWizardGameScreenState extends State<WordWizardGameScreen>
         const SizedBox(height: 20),
         ElevatedButton(
               onPressed: () {
-                if (provider.isRoundComplete) {
-                  context.pushReplacement('/word-wizard/result');
-                } else {
-                  provider.nextWord();
+                try {
+                  debugPrint(
+                    'Button pressed: isRoundComplete=${provider.isRoundComplete}',
+                  );
+                  if (provider.isRoundComplete) {
+                    debugPrint('Navigating to result screen...');
+                    context.pushReplacement('/word-wizard/result');
+                  } else {
+                    debugPrint('Moving to next word...');
+                    provider.nextWord();
+                  }
+                } catch (e) {
+                  debugPrint('ERROR in success action button: $e');
+                  // Fallback: try to go to result screen
+                  try {
+                    context.pushReplacement('/word-wizard/result');
+                  } catch (e2) {
+                    debugPrint('CRITICAL: Could not navigate: $e2');
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Error: $e2'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
                 }
               },
               style: ElevatedButton.styleFrom(

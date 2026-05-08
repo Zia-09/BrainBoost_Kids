@@ -102,33 +102,86 @@ class WordWizardProvider extends ChangeNotifier {
   }
 
   List<String> _generateMcqOptions(WordItem word) {
-    Set<String> options = {word.word.toUpperCase()};
-    List<WordItem> all = [];
-
-    // Safe iteration through allWordCategories
     try {
-      allWordCategories.forEach((_, words) => all.addAll(words));
-    } catch (e) {
-      debugPrint('Error generating MCQ options: $e');
-      // Fallback: ensure we have at least the correct answer
-      return [word.word.toUpperCase()];
-    }
+      String correctAnswer = word.word.toUpperCase().trim();
+      Set<String> options = {correctAnswer};
+      List<WordItem> allWords = [];
 
-    all.shuffle();
+      // Collect all words from all categories
+      allWordCategories.forEach((_, words) {
+        for (var w in words) {
+          if (w.word.isNotEmpty) {
+            allWords.add(w);
+          }
+        }
+      });
 
-    for (var w in all) {
-      if (options.length >= 4) break;
-      if (w.word.toUpperCase() != word.word.toUpperCase()) {
-        options.add(w.word.toUpperCase());
+      if (allWords.isEmpty) {
+        debugPrint('Warning: No words available in allWordCategories');
+        // Fallback: return 4 copies of correct answer with variations
+        return [
+          correctAnswer,
+          '${correctAnswer}_2',
+          '${correctAnswer}_3',
+          '${correctAnswer}_4',
+        ];
       }
-    }
 
-    // Ensure we have exactly 4 options, fallback if needed
-    while (options.length < 4) {
-      options.add('OPTION_${options.length}');
-    }
+      // Shuffle to get random words
+      allWords.shuffle(Random());
 
-    return options.toList();
+      // Add unique words as wrong options
+      for (var w in allWords) {
+        if (options.length >= 4) break;
+        String candidate = w.word.toUpperCase().trim();
+        if (candidate != correctAnswer && candidate.isNotEmpty) {
+          options.add(candidate);
+        }
+      }
+
+      // If we still don't have 4 options, generate plausible fake words
+      if (options.length < 4) {
+        debugPrint(
+          'Warning: Only ${options.length} unique options found. Adding generated words.',
+        );
+        List<String> alternativeWords = [];
+
+        // Generate plausible alternatives based on word structure
+        for (var w in allWords) {
+          String candidate = w.word.toUpperCase().trim();
+          if (candidate != correctAnswer && candidate.isNotEmpty) {
+            alternativeWords.add(candidate);
+          }
+        }
+
+        alternativeWords.shuffle(Random());
+        int needed = 4 - options.length;
+        for (int i = 0; i < needed && i < alternativeWords.length; i++) {
+          options.add(alternativeWords[i]);
+        }
+      }
+
+      // Final safety: ensure exactly 4 options
+      List<String> finalOptions = options.toList();
+      while (finalOptions.length < 4) {
+        // Generate synthetic options by appending a suffix
+        finalOptions.add('WORD_${finalOptions.length}');
+      }
+
+      // Shuffle to randomize position of correct answer
+      finalOptions.shuffle(Random());
+
+      debugPrint(
+        'MCQ Options generated: $finalOptions (correct: $correctAnswer)',
+      );
+      return finalOptions.take(4).toList();
+    } catch (e) {
+      debugPrint('CRITICAL ERROR in _generateMcqOptions: $e');
+      // Absolute fallback - ensure we return exactly 4 items
+      String correctAnswer = word.word.toUpperCase().trim();
+      return [correctAnswer, 'OPTION_B', 'OPTION_C', 'OPTION_D']
+        ..shuffle(Random());
+    }
   }
 
   List<String> _generateLetterOptions(WordItem word) {
@@ -220,36 +273,49 @@ class WordWizardProvider extends ChangeNotifier {
   }
 
   bool checkMcqAnswer(String selectedWord) {
-    if (currentWord == null) {
-      debugPrint('Error: currentWord is null');
-      return false;
-    }
+    try {
+      if (currentWord == null) {
+        debugPrint('ERROR: currentWord is null when checking MCQ answer');
+        return false;
+      }
 
-    final selectedUpper = selectedWord.toUpperCase().trim();
-    final correctUpper = currentWord!.word.toUpperCase().trim();
+      final selectedUpper = selectedWord.toUpperCase().trim();
+      final correctUpper = currentWord!.word.toUpperCase().trim();
 
-    if (selectedUpper == correctUpper) {
-      int wordScore = _calculateWordScore();
-      score += wordScore;
-      totalScore += wordScore;
-      globalScore += wordScore;
-      currentStreak++;
-      globalStreak++;
-      if (currentStreak > bestStreak) bestStreak = currentStreak;
-      _saveGlobalScore();
-      _saveGlobalStreak();
+      if (selectedUpper.isEmpty) {
+        debugPrint('ERROR: selectedWord is empty');
+        return false;
+      }
 
-      isWordComplete = true;
-      TtsService.speakName(currentWord!.word);
-      Future.delayed(const Duration(milliseconds: 1200), () {
-        TtsService.speakFact(currentWord!.funFact);
-      });
-      notifyListeners();
-      return true;
-    } else {
-      wrongAttempts++;
-      currentStreak = 0;
-      notifyListeners();
+      if (selectedUpper == correctUpper) {
+        debugPrint('✓ MCQ CORRECT: $selectedUpper == $correctUpper');
+
+        int wordScore = _calculateWordScore();
+        score += wordScore;
+        totalScore += wordScore;
+        globalScore += wordScore;
+        currentStreak++;
+        globalStreak++;
+        if (currentStreak > bestStreak) bestStreak = currentStreak;
+        _saveGlobalScore();
+        _saveGlobalStreak();
+
+        isWordComplete = true;
+        TtsService.speakName(currentWord!.word);
+        Future.delayed(const Duration(milliseconds: 1200), () {
+          TtsService.speakFact(currentWord!.funFact);
+        });
+        notifyListeners();
+        return true;
+      } else {
+        debugPrint('✗ MCQ WRONG: $selectedUpper != $correctUpper');
+        wrongAttempts++;
+        currentStreak = 0;
+        notifyListeners();
+        return false;
+      }
+    } catch (e) {
+      debugPrint('CRITICAL ERROR in checkMcqAnswer: $e');
       return false;
     }
   }
@@ -271,17 +337,33 @@ class WordWizardProvider extends ChangeNotifier {
 
   // UNLIMITED next word — never a dead end
   void nextWord() {
-    currentWordIndex++;
-    wrongAttempts = 0;
-    isWordComplete = false;
-    if (currentWordIndex >= roundWords.length) {
-      // Round complete — but DON'T stop. Start next round automatically!
+    try {
+      currentWordIndex++;
+      wrongAttempts = 0;
+      isWordComplete = false;
+      debugPrint(
+        'nextWord: currentWordIndex=$currentWordIndex, roundWords.length=${roundWords.length}',
+      );
+      if (currentWordIndex >= roundWords.length) {
+        // Round complete — but DON'T stop. Start next round automatically!
+        debugPrint('Round Complete! Showing results...');
+        isRoundComplete = true;
+        notifyListeners();
+        // Auto-start next round after result screen
+        // Round number keeps incrementing forever → getRecycledRound handles it
+      } else {
+        if (currentWordIndex < roundWords.length) {
+          loadWord(roundWords[currentWordIndex]);
+        } else {
+          debugPrint('ERROR: currentWordIndex out of bounds');
+          isRoundComplete = true;
+          notifyListeners();
+        }
+      }
+    } catch (e) {
+      debugPrint('ERROR in nextWord: $e');
       isRoundComplete = true;
       notifyListeners();
-      // Auto-start next round after result screen
-      // Round number keeps incrementing forever → getRecycledRound handles it
-    } else {
-      loadWord(roundWords[currentWordIndex]);
     }
   }
 

@@ -53,6 +53,17 @@ class TtsService {
     } catch (_) {}
   }
 
+  static Future<void> speakText(String text, {String language = 'en-US'}) async {
+    if (!_isEnabled) return;
+    try {
+      await _tts.setLanguage(language);
+      await _tts.stop();
+      await _tts.speak(text);
+      // Reset back to default
+      await _tts.setLanguage("en-US");
+    } catch (_) {}
+  }
+
   static void setEnabled(bool value) => _isEnabled = value;
 
   static Future<void> stop() async {

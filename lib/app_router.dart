@@ -17,6 +17,12 @@ import 'screens/match_result_screen.dart';
 import 'screens/word_wizard_home_screen.dart';
 import 'screens/word_wizard_game_screen.dart';
 import 'screens/word_wizard_result_screen.dart';
+import 'screens/learn_everything/learn_home_screen.dart';
+import 'screens/learn_everything/learn_game_screen.dart';
+import 'models/learn_item.dart';
+import 'screens/learn_speak/learn_speak_home_screen.dart';
+import 'screens/learn_speak/learn_speak_game_screen.dart';
+import 'models/learn_speak_item.dart';
 
 class AppRouter {
   static final router = GoRouter(
@@ -137,6 +143,30 @@ class AppRouter {
       GoRoute(
         path: '/word-wizard/result',
         builder: (context, state) => const WordWizardResultScreen(),
+      ),
+      GoRoute(
+        path: '/learn-everything',
+        builder: (context, state) => const LearnEverythingHomeScreen(),
+      ),
+      GoRoute(
+        path: '/learn-everything/game',
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final category = extra['category'] as LearnCategory;
+          return LearnEverythingGameScreen(category: category);
+        },
+      ),
+      GoRoute(
+        path: '/learn-speak',
+        builder: (context, state) => const LearnSpeakHomeScreen(),
+      ),
+      GoRoute(
+        path: '/learn-speak/game',
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final category = extra['category'] as LearnSpeakCategory;
+          return LearnSpeakGameScreen(category: category);
+        },
       ),
     ],
   );

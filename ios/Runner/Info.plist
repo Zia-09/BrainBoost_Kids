@@ -66,5 +66,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>BrainBoost Kids needs to use speech recognition to help you practice pronunciation.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>BrainBoost Kids needs access to the microphone to hear you speak sentences.</string>
 </dict>
 </plist>
